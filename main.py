@@ -5,7 +5,7 @@ class Dijkstra:
     def __init__(self, start: str, end: str):
         self.start_point = start
         self.end_point = end
-        self.min_costs = {self.start_point: 0}
+        self.min_dist = {self.start_point: 0}
         self.previous_nodes = {}
         self.links = self.precompute_links()
 
@@ -16,7 +16,7 @@ class Dijkstra:
         while nodes_to_visit:
             nodes_to_visit.sort()
 
-            current_cost, current_node = nodes_to_visit.pop(0)
+            current_dist, current_node = nodes_to_visit.pop(0)
 
             if current_node in visited:
                 continue
@@ -25,15 +25,15 @@ class Dijkstra:
 
             if current_node == self.end_point:
                 path: list[str] = self.reconstruct_path()
-                print(f"Chemin le plus court: {' → '.join(path)} avec un coût de {round(current_cost / 1000, 2)}km")
+                print(f"Chemin le plus court: {' → '.join(path)} avec un coût de {round(current_dist / 1000, 2)}km")
 
             for letter, distance in self.get_letters_around(current_node):
-                new_cost: int = current_cost + distance
+                new_dist: int = current_dist + distance
 
-                if letter not in self.min_costs or new_cost < self.min_costs[letter]:
-                    self.min_costs[letter] = new_cost
+                if letter not in self.min_dist or new_dist < self.min_dist[letter]:
+                    self.min_dist[letter] = new_dist
                     self.previous_nodes[letter] = current_node
-                    nodes_to_visit.append((new_cost, letter))
+                    nodes_to_visit.append((new_dist, letter))
 
     def reconstruct_path(self) -> list[str]:
         path = []
