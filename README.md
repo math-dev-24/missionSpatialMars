@@ -27,6 +27,15 @@ Votre mission (si vous l'acceptez) est de déterminer quel site d'atterrissage i
 
 - Le fichier contenant les distances de chaque liaison ainsi que la carte de Mars avec les différents checkpoints.
 
-![image](asset/carte_mars.webp)
+![image](assets/carte_mars.webp)
+
+## Réflexions
+
+- une classe qui va me permettre de construire une logique de calcul avec plusieurs fonctions ayant une fonction unique.
+  - Une fonction qui va me pré calculer les liens disponibles pour chaque point.
+  - Une fonction qui va me permettre de données tous les liens/distances possibles avec un point en entrée.
+- ...
+
+![schéma de réflexion](assets/research.png)
 
 **Source : [Challenge DOCSTRING](https://www.docstring.fr/)**
